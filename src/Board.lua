@@ -18,7 +18,7 @@ function Board:init(x, y, level)
     self.y = y
     self.matches = {}
 
-    self.colorsNumber = math.min(8, level + 5)
+    self.colorsNumber = math.min(8, level + 3)
     self.colors = self:generateRandomColors(self.colorsNumber)
 
     self.variety = math.min(6, math.ceil(level / 2))
@@ -370,7 +370,7 @@ end
 function Board:swap(tile1, tile2)
     -- swap grid positions of tiles
     local tempX = tile1.gridX
-    local tempY = tile2.gridY
+    local tempY = tile1.gridY
 
     tile1.gridX = tile2.gridX
     tile1.gridY = tile2.gridY
