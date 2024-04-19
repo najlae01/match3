@@ -32,7 +32,7 @@ function Tile:init(x, y, color, variety)
     self.psystem = love.graphics.newParticleSystem(gTextures['particle'], 32)
     self.psystem:setParticleLifetime(1, 5)
     self.psystem:setAreaSpread('normal', 6, 6)
-    self.psystem:setColors(255, 255, 255, 255,
+    self.psystem:setColors(255, 255, 255, 60,
                        255, 255, 255, 0) 
 
     if self.shiny then

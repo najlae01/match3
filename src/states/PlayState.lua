@@ -190,9 +190,17 @@ function PlayState:calculateMatches(calculatedMatches)
             -- recursively call function in case new matches have been created
             -- as a result of falling blocks once new blocks have finished falling
             self:calculateMatches()
+
+            if not self.board:matchFound() then
+                self.noMatches = true
+                gSounds['error']:play()
+
+                while not self.board:matchFound() do
+                    self.board = Board(VIRTUAL_WIDTH - 272, 16, self.level)
+                end
+                self.noMatches = false
+            end
         end)
-
-
     -- if no matches, we can continue playing
     else
         self.canInput = true
